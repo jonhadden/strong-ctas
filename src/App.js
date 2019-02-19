@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from './Home';
 import data from './data/data'
 
 // class component
@@ -9,40 +8,45 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      appearHome: true,
-      property: data.properties[0]
+      cta: data.ctas[0]
     }
   }
 
-  toggleAppear = () => {
-    this.setState({
-      appearHome: !this.state.appearHome
-    })
-  }
-
   nextProperty = () => {
-    const newIndex = this.state.property.index+1;
+      let newIndex = this.state.cta.index+1;
+      this.setState({
+        cta: data.ctas[newIndex]
+      })
+  }
+
+  toggleHome = () => {
     this.setState({
-      property: data.properties[newIndex]
+      cta: data.ctas[0]
     })
   }
 
-  prevProperty = () => {
-    const newIndex = this.state.property.index-1;
+  toggleAbout = () => {
     this.setState({
-      property: data.properties[newIndex]
+      cta: data.ctas[1]
     })
   }
 
   render() {
-    const {appearHome, property} = this.state;
+    const {cta} = this.state;
     return (
-      <div className="App">
-        <button onClick={() => this.toggleAppear()}>Appear: {`${appearHome}`}</button>
-        <button onClick={() => this.nextProperty()} disabled={property.index === data.properties.length-1}>Next</button>
-        <button onClick={() => this.prevProperty()} disabled={property.index === 0}>Prev</button>
+      <div className="strong-ctas" style={{ backgroundColor: cta.bkgColor }}>
+        <div className="header">
+          <button onClick={() => this.toggleHome()}>Strong CTAS</button>
+          <button onClick={() => this.toggleAbout()}>About</button>
+        </div>
+        
+        <h1>{cta.title}</h1>
+        <h2>{cta.subheader}</h2>
 
-        <Home property={property} />
+        <button onClick={() => this.nextProperty()}>
+            {cta.label}
+        </button>
+
       </div>
     );
   }
