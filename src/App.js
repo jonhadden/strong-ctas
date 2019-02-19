@@ -13,10 +13,21 @@ class App extends Component {
   }
 
   nextProperty = () => {
-      let newIndex = this.state.cta.index+1;
-      this.setState({
-        cta: data.ctas[newIndex]
-      })
+
+      let homepage = this.state.cta.index === 0;
+      let aboutpage = this.state.cta.index === 1;
+      let lastButton = this.state.cta.index === (data.ctas.length - 1);
+
+      if (homepage || aboutpage || lastButton) {
+        this.setState({
+          cta: data.ctas[2]
+        })
+      } else {
+        let newIndex = this.state.cta.index+1;
+        this.setState({
+          cta: data.ctas[newIndex]
+        })
+      }
   }
 
   toggleHome = () => {
