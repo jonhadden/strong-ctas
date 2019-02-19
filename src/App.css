@@ -12,6 +12,8 @@ body {
     text-align: center;
     height:100vh;
     padding: 20px;
+    -webkit-transition: background-color 500ms ease-out;
+    transition: background-color 500ms ease-out;
 }
     .strong-ctas button {
         outline: none;
@@ -46,6 +48,8 @@ body {
 h1, h2 {
     color: #fff;
     line-height: 1;
+    max-width: 850px;
+    margin: 0 auto 34px;
 }
 h1 {
     font-weight: 900;
@@ -55,7 +59,7 @@ h1 {
 h2 {
     font-weight: 300;
     font-size: 30px;
-    padding: 0 40px 40px;
+    padding: 0 40px;
 }
 
 .strong-ctas > button {
