@@ -2,6 +2,7 @@
   "name": "react-extensions",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://strongctas.com",
   "devDependencies": {
     "react-scripts": "1.1.4"
   },

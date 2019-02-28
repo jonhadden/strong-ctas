@@ -51,12 +51,16 @@ class App extends Component {
           <button onClick={() => this.toggleAbout()}>About</button>
         </div>
         
-        <h1>{cta.title}</h1>
-        <h2>{cta.subheader}</h2>
+        <div className="titles">
+          <h1>{cta.title}</h1>
+          <h2>{cta.subheader}</h2>
+        </div>
 
-        <button onClick={() => this.nextProperty()}>
-            {cta.label}
-        </button>
+        <div className="cta">
+          <button onClick={() => this.nextProperty()}>
+              {cta.label}
+          </button>
+        </div>
 
       </div>
     );
