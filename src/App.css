@@ -38,6 +38,7 @@ body {
         background: transparent;
         border: none;
         color: #fff;
+        font-weight: 700;
         text-transform: uppercase;
         font-size: 16px;
     }
@@ -65,27 +66,30 @@ body {
     h2 {
         font-weight: 300;
         font-size: 20px;
-        padding: 0 40px;
+        margin-bottom: 40px;
     }
 
 .cta {
-    position: relative;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
 }
+    .cta.interior {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        .cta.interior button {
+            margin-top: -200px;
+        }
     .cta button {
-        background: transparent;
         display: inline-block;
-        padding: 14px 40px;
+        padding: 24px 58px;
         text-transform: uppercase;
         font-size: 16px;
+        font-weight: 900;
         border: 1px solid rgba(255, 255, 255, 0.7);
         border-radius: 2px;
-        color: #fff;
-
-        position: absolute;
-        top: 30%;
-        transform: translateY(-30%);
-        transform: translateX(-50%);
+        background: #fff;
     }
     .cta button:hover {
         border: 1px solid rgba(255, 255, 255, 1);
@@ -99,5 +103,8 @@ body {
     }
     h2 {
         font-size: 20px;
+    }
+    .cta {
+        flex: 1 1 auto;
     }
 }

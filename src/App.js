@@ -2,68 +2,104 @@ import React, { Component } from 'react';
 import './App.css';
 import data from './data/data'
 
-// class component
 class App extends Component {
 
   constructor(props){
     super(props);
+    let colors = data.colors;
+
     this.state = {
-      cta: data.ctas[0]
+      page: data.pages[0],
+      fontSize: '64px',
+      randomColor: colors[Math.floor(Math.random()*colors.length)]
     }
   }
 
   nextProperty = () => {
 
-      let homepage = this.state.cta.index === 0;
-      let aboutpage = this.state.cta.index === 1;
-      let lastButton = this.state.cta.index === (data.ctas.length - 1);
+      let homePage = this.state.page.index === 0;
+      let aboutPage = this.state.page.index === 1;
+      let colors = data.colors;
+      let labels = data.labels;
 
-      if (homepage || aboutpage || lastButton) {
+      if (homePage) {
         this.setState({
-          cta: data.ctas[2]
+          page: data.pages[1],
+          fontSize: '42px',
+          randomColor: colors[Math.floor(Math.random()*colors.length)]
+        })
+      } else if (aboutPage) {
+        this.setState({
+          page: false,
+          label: labels[Math.floor(Math.random()*labels.length)],
+          randomColor: colors[Math.floor(Math.random()*colors.length)]
         })
       } else {
-        let newIndex = this.state.cta.index+1;
         this.setState({
-          cta: data.ctas[newIndex]
+          page: false,
+          label: labels[Math.floor(Math.random()*labels.length)],
+          randomColor: colors[Math.floor(Math.random()*colors.length)]
         })
       }
   }
 
   toggleHome = () => {
+    let colors = data.colors;
     this.setState({
-      cta: data.ctas[0]
+      page: data.pages[0],
+      fontSize: '64px',
+      randomColor: colors[Math.floor(Math.random()*colors.length)]
     })
   }
 
   toggleAbout = () => {
+    let colors = data.colors;
     this.setState({
-      cta: data.ctas[1]
+      page: data.pages[1],
+      fontSize: '42px',
+      randomColor: colors[Math.floor(Math.random()*colors.length)]
     })
   }
 
   render() {
-    const {cta} = this.state;
-    return (
-      <div className="strong-ctas" style={{ backgroundColor: cta.bkgColor }}>
-        <div className="header">
-          <button onClick={() => this.toggleHome()}>Strong CTAS</button>
-          <button onClick={() => this.toggleAbout()}>About</button>
-        </div>
-        
-        <div className="titles">
-          <h1>{cta.title}</h1>
-          <h2>{cta.subheader}</h2>
-        </div>
+    if (this.state.page) {
+      return (
+        <div className="strong-ctas" style={{ backgroundColor: this.state.randomColor }}>
+          <div className="header">
+            <button onClick={() => this.toggleHome()}>Strong CTAS</button>
+            <button onClick={() => this.toggleAbout()}>About</button>
+          </div>
+          
+          <div className="titles">
+            <h1 style={{ fontSize: this.state.fontSize }}>{this.state.page.title}</h1>
+            <h2>{this.state.page.subheader}</h2>
+          </div>
 
-        <div className="cta">
-          <button onClick={() => this.nextProperty()}>
-              {cta.label}
-          </button>
-        </div>
+          <div className="cta">
+            <button onClick={() => this.nextProperty()} style={{ color: this.state.randomColor }}>
+                {this.state.page.label}
+            </button>
+          </div>
 
-      </div>
-    );
+        </div>
+      );  
+    } else {
+      return (
+        <div className="strong-ctas" style={{ backgroundColor: this.state.randomColor }}>
+          <div className="header">
+            <button onClick={() => this.toggleHome()}>Strong CTAS</button>
+            <button onClick={() => this.toggleAbout()}>About</button>
+          </div>
+          
+          <div className="cta interior">
+            <button onClick={() => this.nextProperty()} style={{ color: this.state.randomColor }}>
+                {this.state.label}
+            </button>
+          </div>
+
+        </div>
+      );
+    }
   }
 }
 
