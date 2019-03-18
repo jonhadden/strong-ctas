@@ -9,7 +9,7 @@ const data = {
         {
             "index": 1,
             "title": "Never doubt the power of a strong call to action.",
-            "subheader": "The most creative advertising in the world is completely useless without one vital thing: a strong call to action. We’ve spent years perfecting this complex art form and are happy to provide a bank of royalty-free CTAs for a wide variety of uses. Click the CTA below for more.",
+            "subheader": "The most creative advertising in the world is completely useless without one vital thing: a strong call to action. We’ve spent years perfecting this complex art form and are happy to provide a bank of royalty-free CTAs for a wide variety of uses.",
             "label": "Get Started",
         }
     ],

@@ -10,7 +10,6 @@ class App extends Component {
 
     this.state = {
       page: data.pages[0],
-      fontSize: '64px',
       randomColor: colors[Math.floor(Math.random()*colors.length)]
     }
   }
@@ -47,7 +46,6 @@ class App extends Component {
     let colors = data.colors;
     this.setState({
       page: data.pages[0],
-      fontSize: '64px',
       randomColor: colors[Math.floor(Math.random()*colors.length)]
     })
   }
@@ -56,7 +54,6 @@ class App extends Component {
     let colors = data.colors;
     this.setState({
       page: data.pages[1],
-      fontSize: '42px',
       randomColor: colors[Math.floor(Math.random()*colors.length)]
     })
   }
@@ -64,14 +61,14 @@ class App extends Component {
   render() {
     if (this.state.page) {
       return (
-        <div className="strong-ctas" style={{ backgroundColor: this.state.randomColor }}>
+        <div className={"strong-ctas " + (this.state.page.subheader ? 'about' : 'home')} style={{ backgroundColor: this.state.randomColor }}>
           <div className="header">
             <button onClick={() => this.toggleHome()}>Strong CTAS</button>
             <button onClick={() => this.toggleAbout()}>About</button>
           </div>
           
           <div className="titles">
-            <h1 style={{ fontSize: this.state.fontSize }}>{this.state.page.title}</h1>
+            <h1>{this.state.page.title}</h1>
             <h2>{this.state.page.subheader}</h2>
           </div>
 

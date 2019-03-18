@@ -60,14 +60,25 @@ body {
     }
     h1 {
         font-weight: 900;
-        font-size: 40px;
         text-transform: uppercase;
     }
     h2 {
         font-weight: 300;
-        font-size: 20px;
         margin-bottom: 40px;
     }
+
+.home h1, .about h1 {
+    margin-top: 50px;
+}
+.home h1 {
+    font-size: 54px;
+}
+.about h1 {
+    font-size: 44px;
+}
+.about h2 {
+    font-size: 20px;
+}
 
 .cta {
     flex: 0 1 auto;
@@ -98,13 +109,32 @@ body {
 
 
 @media screen and (min-width: 600px) {
-    h1 {
-        font-size: 60px;
+
+    .home h1, .about h1 {
+        margin-top: 0;
     }
-    h2 {
-        font-size: 20px;
+    .home h1 {
+        font-size: 66px;
     }
+    .about h1 {
+        font-size: 70px;
+    }
+    .about h2 {
+        font-size: 22px;
+    }
+
     .cta {
         flex: 1 1 auto;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .home h1 {
+        font-size: 104px;
+    }
+    .about h1 {
+        font-size: 88px;
+    }
+    .about h2 {
+        font-size: 27px;
     }
 }
