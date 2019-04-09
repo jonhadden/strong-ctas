@@ -17,26 +17,22 @@ class App extends Component {
   nextProperty = () => {
 
       let homePage = this.state.page.index === 0;
-      let aboutPage = this.state.page.index === 1;
       let colors = data.colors;
       let labels = data.labels;
+      let currentLabel = this.state.label;
+      let newIndex = labels.indexOf(currentLabel) + 1;
+      let lastButton = labels.indexOf(currentLabel) === (labels.length - 1);
 
-      if (homePage) {
-        this.setState({
-          page: data.pages[1],
-          fontSize: '42px',
-          randomColor: colors[Math.floor(Math.random()*colors.length)]
-        })
-      } else if (aboutPage) {
+      if (homePage || lastButton) {
         this.setState({
           page: false,
-          label: labels[Math.floor(Math.random()*labels.length)],
+          label: labels[0],
           randomColor: colors[Math.floor(Math.random()*colors.length)]
         })
       } else {
         this.setState({
           page: false,
-          label: labels[Math.floor(Math.random()*labels.length)],
+          label: labels[newIndex],
           randomColor: colors[Math.floor(Math.random()*colors.length)]
         })
       }
@@ -50,21 +46,12 @@ class App extends Component {
     })
   }
 
-  toggleAbout = () => {
-    let colors = data.colors;
-    this.setState({
-      page: data.pages[1],
-      randomColor: colors[Math.floor(Math.random()*colors.length)]
-    })
-  }
-
   render() {
     if (this.state.page) {
       return (
         <div className={"strong-ctas " + (this.state.page.subheader ? 'about' : 'home')} style={{ backgroundColor: this.state.randomColor }}>
           <div className="header">
             <button onClick={() => this.toggleHome()}>Strong CTAS</button>
-            <button onClick={() => this.toggleAbout()}>About</button>
           </div>
           
           <div className="titles">
@@ -85,7 +72,6 @@ class App extends Component {
         <div className="strong-ctas" style={{ backgroundColor: this.state.randomColor }}>
           <div className="header">
             <button onClick={() => this.toggleHome()}>Strong CTAS</button>
-            <button onClick={() => this.toggleAbout()}>About</button>
           </div>
           
           <div className="cta interior">

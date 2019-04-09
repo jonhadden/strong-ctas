@@ -2,16 +2,19 @@
 
 body {
   margin: 0;
-  padding: 0 0 100px 0;
+  padding: 0;
   font-family: 'Yantramanav', sans-serif;
   letter-spacing: 2px;
-  overflow: hidden;
+  overflow: auto;
+  height: 100vh;
 }
-
+#root {
+    height: 100%;
+}
 .strong-ctas {
     text-align: center;
-    height: 100vh;
-    padding: 20px;
+    height: 100%;
+    padding: 0;
     -webkit-transition: background-color 500ms ease-out;
     transition: background-color 500ms ease-out;
     display: flex;
@@ -26,6 +29,7 @@ body {
 
 .header {
     margin-bottom: 40px;
+    padding: 20px 20px 0;
     flex: 0 1 auto;
 }
     .header:before {
@@ -33,7 +37,7 @@ body {
         clear: both;
         display: table;
     }
-    .header button:first-of-type, .header button:last-of-type {
+    .header button {
         padding: 0;
         background: transparent;
         border: none;
@@ -41,15 +45,11 @@ body {
         font-weight: 700;
         text-transform: uppercase;
         font-size: 16px;
-    }
-    .header button:first-of-type {
         float: left;
     }
-    .header button:last-of-type {
-        float: right;
-    }
 
-.titles {
+.titles, .cta {
+    padding: 0 20px;
     flex: 0 1 auto;
 }
     h1, h2 {
@@ -60,81 +60,58 @@ body {
     }
     h1 {
         font-weight: 900;
+        font-size: 44px;
+        margin-top: 50px;
         text-transform: uppercase;
     }
     h2 {
         font-weight: 300;
         margin-bottom: 40px;
+        font-size: 20px;
     }
 
-.home h1, .about h1 {
-    margin-top: 50px;
+.cta.interior {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.home h1 {
-    font-size: 54px;
-}
-.about h1 {
-    font-size: 44px;
-}
-.about h2 {
-    font-size: 20px;
-}
-
-.cta {
-    flex: 0 1 auto;
-}
-    .cta.interior {
-        flex: 1 1 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .cta.interior button {
+        margin-top: -200px;
     }
-        .cta.interior button {
-            margin-top: -200px;
-        }
-    .cta button {
-        display: inline-block;
-        padding: 24px 58px;
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: 900;
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        border-radius: 2px;
-        background: #fff;
-    }
-    .cta button:hover {
-        border: 1px solid rgba(255, 255, 255, 1);
-        color: rgba(255, 255, 255, 1);
-    }
-
+.cta button {
+    display: inline-block;
+    padding: 24px 58px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 900;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    background: #fff;
+}
+.cta button:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
+}
 
 @media screen and (min-width: 600px) {
-
-    .home h1, .about h1 {
+    h1 {
+        font-size: 70px;
         margin-top: 0;
     }
-    .home h1 {
-        font-size: 66px;
-    }
-    .about h1 {
-        font-size: 70px;
-    }
-    .about h2 {
+    h2 {
         font-size: 22px;
     }
-
     .cta {
         flex: 1 1 auto;
     }
 }
 @media screen and (min-width: 1000px) {
-    .home h1 {
-        font-size: 104px;
-    }
-    .about h1 {
+    h1 {
         font-size: 88px;
     }
-    .about h2 {
+    h2 {
         font-size: 27px;
     }
 }
+
